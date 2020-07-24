@@ -59,11 +59,11 @@ public abstract class NetworkParameters {
     public static final String ID_REGTEST = "org.bitcoin.regtest";
     /** Unit test network. */
     public static final String ID_UNITTESTNET = "org.bitcoinj.unittest";
-	 /** The string returned by getId() for the Qtum mainnet. */
-    public static final String ID_QTUM_MAINNET = "org.bitcoinj.qtum_mainnet";
+	 /** The string returned by getId() for the BCS mainnet. */
+    public static final String ID_BCS_MAINNET = "org.bitcoinj.bcs_mainnet";
 
-    /** The string returned by getId() for the Qtum mainnet. */
-    public static final String ID_QTUM_TESTNET = "org.bitcoinj.qtum_testnet";
+    /** The string returned by getId() for the BCS mainnet. */
+    public static final String ID_BCS_TESTNET = "org.bitcoinj.bcs_testnet";
 	
 	/** The string returned by getId() for the WhiteCoin netparams. */
     public static final String ID_WHITECOIN_NET = "org.bitcoinj.whitecoin_net";
@@ -157,7 +157,7 @@ public abstract class NetworkParameters {
     /**
      * The maximum number of coins to be generated
      */
-    public static final long MAX_COINS = 21000000;
+    public static final long MAX_COINS = 1000000000;
 
     /**
      * The maximum money to be generated
@@ -232,10 +232,10 @@ public abstract class NetworkParameters {
             return UnitTestParams.get();
         } else if (id.equals(ID_REGTEST)) {
             return RegTestParams.get();
-        } else if (id.equals(ID_QTUM_MAINNET)) {
-            return QtumMainNetParams.get();
-        } else if (id.equals(ID_QTUM_TESTNET)) {
-            return QtumTestNetParams.get();
+        } else if (id.equals(ID_BCS_MAINNET)) {
+            return BCSMainNetParams.get();
+        } else if (id.equals(ID_BCS_TESTNET)) {
+            return BCSTestNetParams.get();
         } else if(id.equals(ID_WHITECOIN_NET)){
 			return WhiteCoinNetParams.get();
 		}else{

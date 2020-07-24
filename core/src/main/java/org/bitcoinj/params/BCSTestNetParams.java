@@ -2,25 +2,26 @@ package org.bitcoinj.params;
 
 import org.bitcoinj.core.*;
 import org.bitcoinj.net.discovery.*;
+import org.bitcoinj.params.AbstractBitcoinNetParams;
 
 import java.net.*;
 
 import static com.google.common.base.Preconditions.*;
 
 
-public class QtumMainNetParams extends AbstractBitcoinNetParams {
+public class BCSTestNetParams extends AbstractBitcoinNetParams {
     public static final int MAINNET_MAJORITY_WINDOW = 1000;
     public static final int MAINNET_MAJORITY_REJECT_BLOCK_OUTDATED = 950;
     public static final int MAINNET_MAJORITY_ENFORCE_BLOCK_UPGRADE = 750;
 
-    public QtumMainNetParams() {
+    public BCSTestNetParams() {
         super();
         interval = INTERVAL;
         targetTimespan = TARGET_TIMESPAN;
         maxTarget = Utils.decodeCompactBits(0x1d00ffffL);
-        dumpedPrivateKeyHeader = 128;
-        addressHeader = 58;
-        p2shHeader = 50;
+        dumpedPrivateKeyHeader = 239;
+        addressHeader = 120;
+        p2shHeader = 110;
         acceptableAddressCodes = new int[] { addressHeader, p2shHeader };
         port = 8333;
         packetMagic = 0xf9beb4d9L;
@@ -34,7 +35,7 @@ public class QtumMainNetParams extends AbstractBitcoinNetParams {
         genesisBlock.setDifficultyTarget(0x1d00ffffL);
         genesisBlock.setTime(1231006505L);
         genesisBlock.setNonce(2083236893);
-        id = ID_QTUM_MAINNET;
+        id = ID_BCS_TESTNET;
         subsidyDecreaseBlockCount = 210000;
         spendableCoinbaseDepth = 100;
         String genesisHash = genesisBlock.getHashAsString();
@@ -112,10 +113,10 @@ public class QtumMainNetParams extends AbstractBitcoinNetParams {
         };
     }
 
-    private static QtumMainNetParams instance;
-    public static synchronized QtumMainNetParams get() {
+    private static BCSTestNetParams instance;
+    public static synchronized BCSTestNetParams get() {
         if (instance == null) {
-            instance = new QtumMainNetParams();
+            instance = new BCSTestNetParams();
         }
         return instance;
     }
